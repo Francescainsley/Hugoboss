@@ -3,7 +3,7 @@ Documobi blue - #3b5e77
 Documobi Orange - #f4843a
 */
 .bigbtn{
-	background-color: #3b5e77;
+	background-color: #000000;
 	font-size: 32px !important;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -13,7 +13,7 @@ Documobi Orange - #f4843a
 }
 .bigbtn:hover{
 	color: white !important;
-	background-color: #2b4e67;
+	background-color: #EF7100;
 }
 .mainLogo{
 	height: auto;
