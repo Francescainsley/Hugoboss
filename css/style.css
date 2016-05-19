@@ -1,0 +1,71 @@
+/*
+Documobi blue - #3b5e77
+Documobi Orange - #f4843a
+*/
+.bigbtn{
+	background-color: #3b5e77;
+	font-size: 32px !important;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 28px;
+	color: white;
+	width: 100%;
+}
+.bigbtn:hover{
+	color: white !important;
+	background-color: #2b4e67;
+}
+.mainLogo{
+	height: auto;
+	width: 100%;
+	margin: auto;
+}
+.index-header{
+	font-size: 20px;
+}
+.form-submit-btn{
+	margin-top: 10px;
+}
+.video-upload-btn{
+	margin-top: 10px;
+}
+.video-header{
+	font-size: 20px;
+}
+.video-text{
+	font-size: 16px;
+}
+.code-entry{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.tfa-header{
+	font-size: 18px;
+}
+.tfa-top{
+	margin-bottom: 10px;
+}
+.thanks-submit{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.banner{
+	margin-top: 20px;
+}
+.spinner-header{
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: -50px;
+	margin-top: 30px;
+}
+.spinner-footer{
+	font-size: 20px;
+	text-align: center;
+	margin-top: -50px;
+}
+.video-upload-button{
+	margin-top: 10px;
+}
+img{
+	margin: auto;
+}

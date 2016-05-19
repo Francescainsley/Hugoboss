@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Hugo Boss</title>
+	<!-- meta tags start -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="images/interflora.png" type="image/x-icon" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+	<link href="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/css/xmp.css" rel="stylesheet" media="screen">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/js/xmp.min.js"></script>
+	<script src="./xmpcfg.js"></script>
+	<link href="css/framework.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/colorbox.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/elements.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/responsive.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/hidpi.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/skin.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- CSS files end -->
+</head>
+<body ng-app="xmp.app" ng-controller="XMPPersonalizedPage" xmp-cloak>
+	<div class="container">
+	  <div class="row">
+			<a class="mainLogo" href="index.html"><img class="img-responsive" src="images/documobi.png" style="padding-bottom: 30px"alt="Documobi"/></a>
+	  </div>
+		<div class="row">
+			<img src="images/header.jpg" class="img-responsive" />
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h4>Thank {{xmp.r.Firstname}} by sending them a message. </h4>
+			</div>
+			<form name="commentsForm" id="commentsForm" action="index.html">
+				<div class="col-xs-12" style="margin-bottom: 10px">
+					<label for="contactMessageTextarea"><span>Message:</span></label>
+					<textarea name="contactMessageTextarea" class="form-control" id="contactMessageTextarea" data-placeholder=""></textarea>
+				</div>
+				<div class="col-xs-12">
+					<label for="cameraInput" class="btn bigbtn">Upload Video:</label>
+					<input style="display: none" type="file" capture="camera" accept="images/*" id="cameraInput" name="cameraInput">
+				</div>
+				<div class="col-xs-12 thanks-submit">
+					<input type="submit" id="commentSubmitButton" class="btn bigbtn" value="Submit">
+				</div>
+			</form>
+		</div>
+		<div class="row banner">
+			<img src="Images/banner.jpg" class="img-responsive" alt="Banner">
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		$('#phone').val("xyz");
+		$('#rid').val('xyz');
+	});
+	</script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/effects.jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo-slider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.colorbox.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Hugo Boss</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="images/interflora.png" type="image/x-icon" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+	<link href="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/css/xmp.css" rel="stylesheet" media="screen">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/js/xmp.min.js"></script>
+	<script src="./xmpcfg.js"></script>
+	<script src="js/js.cookie.js" type="text/javascript" charset="utf-8"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-app="xmp.app" ng-controller="XMPAnonymousPage" xmp-cloak style="padding-bottom: 70px">
+	<div class="container">
+		<div class="row">
+			<a class="mainLogo" href="index.html">
+				<img src="images/documobi.png" class="img-responsive" style="padding-bottom: 30px" alt="American Greetings"/>
+			</a>
+		</div>
+		<div class="pageWrapper homePageWrapper">
+			<div class="cardOuterWrapper">
+				<div class="cardWrapper">
+					<div class="commentsFormWrapper">
+						<h4 class="commentsTitle commentsFormTitle">Hi, please register with your name below here:</h4>
+						<form name='commentsForm' xmp-register class="commentsForm" id="commentsForm" style="color: black" xmp-success-url="video_upload.html">
+							<div class="formFieldWrapper">
+								<label for="contactFirstNameField">Your first name:</label>
+								<input type="text" xmp-write-ador="xmp.r.Firstname" class="form-control" id="contactFirstNameField" data-placeholder=""/>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<p>
+										Please register the recipient's details below
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<label for="contactEmailField">First name:</label>
+									<input type="text" xmp-write-ador="xmp.r.RFirstname" class="contactField requiredField form-control" id="contactFirstNameField" data-placeholder=""/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<label for="contactEmailField">Last name:</label>
+									<input type="text" xmp-write-ador="xmp.r.RLastname" value="" class="contactField requiredField form-control" id="contactLastNameField" data-placeholder=""/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<label for="contactEmailField">Mobile Number:</label>
+									<input id="Code" type="tel" xmp-write-ador="xmp.r.Telephone" class="form-control" required="required" maxlength=13 />
+								</div>
+							</div>
+							<input type="hidden" value="" xmp-write-ador="xmp.r.Code" id="randomcode">
+							<div class="row">
+								<div class="col-xs-12">
+									<label for="contactEmailField">Personal Message</label>
+									<textarea type="text" class="form-control" xmp-write-ador="xmp.r.Gift" placeholder="Enter a message..."></textarea>
+								</div>
+							</div>
+							<br>
+							<input type="submit" id="commentSubmitButton" class="btn bigbtn" value="Submit" >
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row banner">
+			<img src="Images/banner.jpg" class="img-responsive" alt="Banner">
+		</div>
+	</div>
+	<script>
+	function CreateRandomString(length, chars) {
+	    var result = '';
+	    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+	    return result;
+	}
+	var randomString = CreateRandomString(6, '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+	$(document).ready(function(){
+		$('#Code').change(RegisterOrUpdate);
+		$('#randomcode').val(randomString);
+	});
+	function RegisterOrUpdate(){
+		var res = new xmpResourceDriver({configuration:xmpcfg},true,true);
+		res.ready(function(){
+			console.log("got here");
+			res.login(
+				null,
+				$('#Code').val(),
+				null,
+				null,
+				function(data){
+					$('#commentsForm').removeAttr("xmp-register");
+					$('#commentsForm').attr("xmp-update", "");
+					$('#commentsForm').attr("ng-submit", "saveRecipientAdors()");
+				},
+				function(){
+					$('#commentsForm').removeAttr("xmp-update");
+					$('#commentsForm').attr("xmp-register", "");
+				} //do something
+			);
+		});
+	}
+	</script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/effects.jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo-slider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.colorbox.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<!-- JavaScript files end -->
+</body>
+</html>

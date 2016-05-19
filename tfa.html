@@ -1,0 +1,83 @@
+<html>
+<head>
+	<!-- tfa.html = The Force Awakens or Two Factor Authentication depending how cool you are. -->
+	<title>Hugo Boss</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="images/interflora.png" type="image/x-icon" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+	<link href="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/css/xmp.css" rel="stylesheet" media="screen">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/js/xmp.min.js"></script>
+	<script src="./xmpcfg.js"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/effects.jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo-slider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.colorbox.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-app="xmp.app" ng-controller="XMPPersonalizedPage" ng-cloak xmp-no-caching>
+	<div id="Code" style="display: none">{{xmp.r.Code}}</div>
+	<div id="rid" style="display: none">{{xmp.r.Telephone}}</div>
+	<div id="firstname" style="display:none">{{xmp.r.RFirstname}}</div>
+	<div class="container">
+		<div class="row tfa-top">
+			<img src="Images/documobi.png" class="img-responsive" alt="Documobi">
+		</div>
+		<div class="row">
+			<img src="Images/header.jpg" class="img-responsive" alt="Header">
+		</div>
+		<div class="row">
+			<div class="col-xs-12 tfa-header">
+				Hi {{xmp.r.Firstname}}, please check your phone for your verification code then enter it below and click submit.
+			</div>
+			<div class="col-xs-12">
+				<form onsubmit="CheckCode()">
+					<input type="text" id="enteredCode" class="form-control code-entry" placeholder="Verification code e.g. 'ZF58BC'"/>
+					<input type="submit" class="btn bigbtn">
+				</form>
+			</div>
+		</div>
+		<div class="row banner">
+			<img src="Images/banner.jpg" class="img-responsive" alt="Banner">
+		</div>
+	</div>
+	<script>
+	function CheckCode(){if($('#enteredCode').val().toUpperCase()==$('#Code').html()){window.location.href="video.html?rid="+$('#rid').html();}else{alert("Sorry, that code doesn't match. Perhaps you entered it incorrectly or you provided the wrong mobile number?");}}
+	function SendSMS(){
+		$(document).delay(1000).queue(function(){
+			$.ajax({
+				method: 'GET',
+				url: "https://rest.messagebird.com/messages",
+				data: {
+					access_key: 'live_iv72nAbpn8o3oYao7geB6BWSU',
+					_method: 'POST',
+					recipients : [$('#rid').html()],
+					validity : 10,
+					originator : "Documobi",
+					body : "Hi "+$("#firstname").html()+", here is your verification code: "+$('#Code').html()+". Please enter it into the form on the webpage to continue. We hope you enjoy your video!"
+				}
+			});
+			$(this).dequeue();
+		});
+	};
+
+	function CheckReady(){
+		if ($('#rid').html() == "") {
+			setTimeout(function() { CheckReady(); }, 500);
+		} else {
+			SendSMS();
+		}
+	};
+
+	$(document).ready(function(){
+		CheckReady();
+	});
+	</script>
+</body>
+</html>

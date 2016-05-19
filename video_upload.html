@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>Hugo Boss</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="images/interflora.png" type="image/x-icon" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+	<link href="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/css/xmp.css" rel="stylesheet" media="screen">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/js/xmp.min.js"></script>
+	<script src="./xmpcfg.js"></script>
+	<script src="js/js.cookie.js" type="text/javascript" charset="utf-8"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-app="xmp.app" ng-controller="XMPPersonalizedPage" xmp-cloak>
+	<div class="container">
+		<div id="code" style="display: none">{{xmp.r.Telephone}}</div>
+		<div class="row">
+			<img src="Images/documobi.png" class="img-responsive" alt="Documobi">
+		</div>
+		<div class="row">
+			<form action="http://php.documobi.com/video-loader/upload_with_redirect.php" method="POST" enctype="multipart/form-data">
+				<div class="col-xs-12">
+					<input type="file" name="upload[]" id="video-upload" style="display: none"/>
+					<label for="video-upload" class="btn bigbtn video-upload-button">Choose a video</label>
+				</div>
+				<div class="col-xs-12">
+					<input id="telephone" name="code" type="hidden" value=""/>
+					<input name="vzaar_video_name" value="FTDFlowers" type='hidden'>
+					<input name="success_url" value="http://marketing6.xmpie.net/hugoboss/create_video.html" type='hidden'>
+					<input name="fail_url" value="http://marketing6.xmpie.net/hugoboss/upload_video.html" type='hidden'>
+					<input type="submit" class="btn bigbtn video-upload-button" value="Upload"/>
+				</div>
+		</form>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		$(document).delay(1000).queue(function(){
+			$('#telephone').val($('#code').html());
+		});
+	});
+	</script>
+</body>
+</html>

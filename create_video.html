@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hugo Boss</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="shortcut icon" href="images/interflora.png" type="image/x-icon" />
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+<link href="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/css/xmp.css" rel="stylesheet" media="screen">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.xmcircle.com/ajax/libs/xmpl/1.0.8/xmp/js/xmp.min.js"></script>
+<script src="./xmpcfg.js"></script>
+<script src="js/js.cookie.js" type="text/javascript" charset="utf-8"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/functions.js" type="text/javascript" charset="utf-8"></script>
+<meta charset="UTF-8">
+</head>
+<body ng-app="xmp.app" ng-controller="XMPPersonalizedPage" xmp-cloak>
+	<div class="container">
+		<div class="row">
+			<img src="Images/documobi.png" class="img-responsive">
+			<div class="col-xs-12 spinner-header">
+				Please wait...
+			</div>
+			<img src="Images/spinner.gif" class="img-responsive" alt="Spinner">
+			<div class="col-xs-12 spinner-footer">
+				Loading...
+			</div>
+		</div>
+		<form xmp-update xmp-success-url="createthanks.html" xmp-failure-url="failed" id="vidform" style="display: none;">
+			<input type="hidden" xmp-write-ador="xmp.r.Video" value="" id="video-input"/>
+			<input type="submit" xmp-success-url="views.html" id="vidbtn">
+		</form>
+	</div>
+	<script type="text/javascript" src="js/param_stripper.js" charset="utf-8"></script>
+	<script>
+		$(document).ready(function(){
+			$('#video-input').val(paramHash()['videoid']);
+			$(document).delay(1000).queue(function(){
+				$('#vidbtn').click();
+				$(this).dequeue();
+			});
+		});
+
+	</script>
+	</body>
+</html>
